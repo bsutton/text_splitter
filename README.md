@@ -11,7 +11,7 @@ import 'package:text_splitter/text_splitter.dart';
 
 void main() {
   String replace(String s) {
-    return '// $s';
+    return '// Removed: $s';
   }
 
   // Let's assume that the locations for the fragments were obtained from a
@@ -49,7 +49,7 @@ void main() {
       .map((e) => e.fragment == null ? e.text : e.fragment!.asString())
       .join();
 
-  final newMainText = [mainText, '// foo.dart', fooText].join('\n');
+  final newMainText = [mainText, '// File: foo.dart', fooText].join('\n');
   print(newMainText);
 }
 
