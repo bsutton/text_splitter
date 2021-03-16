@@ -14,9 +14,10 @@ class TextSplitter {
       prev = fragment;
     }
 
+    var lastChunkIndex = 0;
     for (final fragment in fragments) {
       var inserted = false;
-      for (var i = 0; i < chunks.length; i++) {
+      for (var i = lastChunkIndex; i < chunks.length; i++) {
         final chunk = chunks[i];
         if (fragment.start >= chunk.start && fragment.end <= chunk.end) {
           if (chunk.fragment != null) {
@@ -50,6 +51,7 @@ class TextSplitter {
           }
 
           inserted = true;
+          lastChunkIndex = i;
           break;
         }
       }

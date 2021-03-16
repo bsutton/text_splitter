@@ -109,6 +109,20 @@ void main() {
     expect('0456789045678904567890456789', _chunks2text(chunks));
   });
 
+  test('Fragments following each other', () {
+    final text = '0123456789012345678901234567890123456789';
+    final fragments = <_TextFragment>[];
+    fragments.add(_TextFragment(0, 9, '1'));
+    fragments.add(_TextFragment(10, 19, '2'));
+    fragments.add(_TextFragment(20, 29, '3'));
+    fragments.add(_TextFragment(30, 39, '4'));
+    final chunks = [Chunk(0, text)];
+    final splitter = TextSplitter();
+    final error = splitter.split(chunks, fragments);
+    expect(error, null);
+    expect('1234', _chunks2text(chunks));
+  });
+
   test('Insert fragment out of the text', () {
     final text = '0123456789012345678901234567890123456789';
     final fragments = <_TextFragment>[];
