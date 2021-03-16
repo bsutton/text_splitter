@@ -1,0 +1,10 @@
+name: text_splitter
+description: The `text_splitter` is intended for multiple insertion of any custom non-intersected fragments into the text at the positions specified by the locations of the fragments.
+homepage: https://github.com/mezoni/text_splitter
+version: 0.0.1
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+dependencies:
+dev_dependencies:
+  pedantic: ^1.11.0
+  test: ^1.16.5
