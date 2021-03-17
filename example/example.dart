@@ -12,6 +12,8 @@ void main() {
   // into one ffile.
 
   // main.dart
+  print('--- main.dart ---');
+  print(_main_dart);
   final mainFragments = <_Fragment>[];
   mainFragments.add(_Fragment(0, 15, 'part \'foo.dart\';', replace));
   mainFragments.add(_Fragment(30, 33, '@Foo', replace));
@@ -27,6 +29,8 @@ void main() {
       .join();
 
   // foo.dart
+  print('--- foo.dart ---');
+  print(_foo_dart);
   final fooFragments = <_Fragment>[];
   fooFragments.add(_Fragment(0, 20, 'part of \'main.dart\';', replace));
   final fooChunks = [Chunk(0, _foo_dart)];
@@ -41,6 +45,7 @@ void main() {
       .join();
 
   final newMainText = [mainText, '// File: foo.dart', fooText].join('\n');
+  print('--- foo.dart ---');
   print(newMainText);
 }
 
@@ -62,7 +67,8 @@ Never _errpr(TextSplitterError error) {
 }
 
 const _foo_dart = '''
-part of 'main.dart';
+part of
+ 'main.dart';
 
 int y = 0;
 
