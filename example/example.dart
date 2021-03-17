@@ -45,7 +45,7 @@ void main() {
       .join();
 
   final newMainText = [mainText, '// File: foo.dart', fooText].join('\n');
-  print('--- foo.dart ---');
+  print('--- main.dart ---');
   print(newMainText);
 }
 
